@@ -22,7 +22,9 @@ class GoodsController extends Controller {
             details: []
         }
         try {
-            const url = `${ctx.query.url}/refer_page_name=${ctx.query.refer_page_name}&refer_page_id=${ctx.query.refer_page_id}&refer_page_sn=${ctx.query.refer_page_sn}`
+            console.log(ctx.query.url)
+            // const url = `${ctx.query.url}/refer_page_name=${ctx.query.refer_page_name}&refer_page_id=${ctx.query.refer_page_id}&refer_page_sn=${ctx.query.refer_page_sn}`
+            const url = ctx.query.url
             const browser = await puppeteer.launch({});
             const page = await browser.newPage();
             await page.goto(url, {});
@@ -32,7 +34,6 @@ class GoodsController extends Controller {
             obj.name = await page.evaluate(body => body.innerText, name);
             const price = await page.$('.Batj66Sb')
             obj.price = await page.evaluate(body => body.innerText, price);
-            // Batj66Sb
             for (let i = 0; i < htmlHandle.length; i++) {
                 var src = await page.evaluate(body => body.src, htmlHandle[i]);
                 obj.banner.push(src)

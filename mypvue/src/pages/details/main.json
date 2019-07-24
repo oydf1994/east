@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "抽奖详情",
+  "usingComponents": {
+    "van-toast": "../../../static/vant/toast/index",
+    "van-action-sheet": "../../../static/vant/action-sheet/index",
+    "van-row": "../../../static/vant/row/index",
+    "van-col": "../../../static/vant/col/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

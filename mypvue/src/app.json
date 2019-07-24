@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/goods/main",
+    "pages/details/main",
+    "pages/mine/main",
+    "pages/plant/main",
+    "pages/logs/main",
+    "pages/participation/main",
+    "pages/counter/main",
+    "pages/home/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#fff",
+    "onReachBottomDistance": -100,
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#F9F9FB",
+    "selectedColor": "#62C29A",
+    "borderStyle": "white",
+    "list": [{
+        "text": "首页",
+        "pagePath": "pages/goods/main",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png"
+      }, {
+        "text": "种植",
+        "pagePath": "pages/plant/main",
+        "iconPath": "static/tabs/plant.png",
+        "selectedIconPath": "static/tabs/plant-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/main",
+        "iconPath": "static/tabs/mine.png",
+        "selectedIconPath": "static/tabs/mine-active.png"
+      }
+    ],
+    "position": "bottom"
+  }
+}

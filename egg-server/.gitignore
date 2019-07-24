@@ -1,0 +1,16 @@
+logs/
+plug/
+npm-debug.log
+yarn-error.log
+node_modules/
+coverage/
+.idea/
+run/
+.DS_Store
+*.sw*
+*.un~
+typings/
+.nyc_output/
+.travis.yml
+*.yml
+appveyor.yml

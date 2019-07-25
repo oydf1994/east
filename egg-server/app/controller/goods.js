@@ -1,5 +1,4 @@
 'use strict';
-const puppeteer = require('../../plug/node_modules/puppeteer');
 const Controller = require('egg').Controller;
 class GoodsController extends Controller {
     async add() {

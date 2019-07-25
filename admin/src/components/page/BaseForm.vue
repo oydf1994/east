@@ -94,7 +94,7 @@
         },
         methods: {
             getGoods() {
-                this.$api.get('http://127.0.0.1:3000/query', {
+                this.$api.get('http://192.168.0.107:3000/query', {
                     url: this.url
                 }).then(res => {
                     if (res) {

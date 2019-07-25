@@ -9,5 +9,9 @@ module.exports = {
   sequelize: {
     enable: true,
     package: 'egg-sequelize',
+  },
+  ejs: {
+    enable: true,
+    package: 'egg-view-ejs',
   }
 };

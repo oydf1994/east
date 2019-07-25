@@ -16,7 +16,10 @@ module.exports = app => {
         currentPeople: {
             type: app.Sequelize.STRING,
             comment: '已参加人数'
-
+        },
+        initPeople: {
+            type: app.Sequelize.STRING,
+            comment: '项目初始化人数'
         },
         people: {
             type: app.Sequelize.STRING,

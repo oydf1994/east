@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui';
 import api from './assets/javascript/axios' // 请求封装
+import tools from './assets/javascript/tools' // 公共方法
 import VueI18n from 'vue-i18n';
 import { messages } from './components/common/i18n';
 import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
@@ -10,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import "babel-polyfill";
-
+Vue.prototype.$tools = tools;
 Vue.config.productionTip = false
 Vue.use(VueI18n);
 Vue.use(ElementUI, {

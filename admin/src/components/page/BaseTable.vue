@@ -19,7 +19,10 @@
                 </el-table-column>
                 <el-table-column prop="type" label="开奖模式">
                 </el-table-column>
-                <el-table-column prop="address" label="发布时间">
+                <el-table-column prop="timing" label="发布时间">
+                    <template slot-scope="scope">
+                        {{$tools.format(scope.row.timing)}}
+                    </template>
                 </el-table-column>
                 <el-table-column prop="initPeople" label="初始化人数">
                 </el-table-column>

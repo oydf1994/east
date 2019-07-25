@@ -6,6 +6,7 @@ class GoodsController extends Controller {
             ctx
         } = this;
         try {
+            console.log(ctx.request.body)
             const res = await this.app.model.Goods.create(ctx.request.body)
             ctx.helper.success(ctx, res)
         } catch (e) {

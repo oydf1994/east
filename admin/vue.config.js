@@ -1,5 +1,6 @@
 module.exports = {
     assetsDir: 'static',
+    outputDir:"../egg-server/app/view",
     productionSourceMap: false,
     // devServer: {
     //     proxy: {

@@ -10,12 +10,12 @@
                             <div>{{role}}</div>
                         </div>
                     </div>
-                    <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
-                    <div class="user-info-list">上次登录地点：<span>东莞</span></div>
+                    <div class="user-info-list">�ϴε�¼ʱ�䣺<span>2018-01-01</span></div>
+                    <div class="user-info-list">�ϴε�¼�ص㣺<span>��ݸ</span></div>
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
                     <div slot="header" class="clearfix">
-                        <span>语言详情</span>
+                        <span>��������</span>
                     </div>
                     Vue
                     <el-progress :percentage="71.3" color="#42b983"></el-progress>
@@ -35,7 +35,7 @@
                                 <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">1234</div>
-                                    <div>用户访问量</div>
+                                    <div>�û�������</div>
                                 </div>
                             </div>
                         </el-card>
@@ -46,7 +46,7 @@
                                 <i class="el-icon-lx-notice grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div>ϵͳ��Ϣ</div>
                                 </div>
                             </div>
                         </el-card>
@@ -57,7 +57,7 @@
                                 <i class="el-icon-lx-goods grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>����</div>
                                 </div>
                             </div>
                         </el-card>
@@ -65,8 +65,8 @@
                 </el-row>
                 <el-card shadow="hover" style="height:403px;">
                     <div slot="header" class="clearfix">
-                        <span>待办事项</span>
-                        <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
+                        <span>��������</span>
+                        <el-button style="float: right; padding: 3px 0" type="text">����</el-button>
                     </div>
                     <el-table :data="todoList" :show-header="false" height="304" style="width: 100%;font-size:14px;">
                         <el-table-column width="40">
@@ -76,7 +76,8 @@
                         </el-table-column>
                         <el-table-column>
                             <template slot-scope="scope">
-                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
+                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}
+                                </div>
                             </template>
                         </el-table-column>
                         <el-table-column width="60">
@@ -97,7 +98,8 @@
             </el-col>
             <el-col :span="12">
                 <el-card shadow="hover">
-                    <schart ref="line" class="schart" canvasId="line" :data="data" type="line" :options="options2"></schart>
+                    <schart ref="line" class="schart" canvasId="line" :data="data" type="line" :options="options2">
+                    </schart>
                 </el-card>
             </el-col>
         </el-row>
@@ -113,26 +115,26 @@
             return {
                 name: localStorage.getItem('ms_username'),
                 todoList: [{
-                        title: '今天要修复100个bug',
+                        title: '����Ҫ�޸�100��bug',
                         status: false,
                     },
                     {
-                        title: '今天要修复100个bug',
+                        title: '����Ҫ�޸�100��bug',
                         status: false,
                     },
                     {
-                        title: '今天要写100行代码加几个bug吧',
+                        title: '����Ҫд100�д���Ӽ���bug��',
                         status: false,
                     }, {
-                        title: '今天要修复100个bug',
+                        title: '����Ҫ�޸�100��bug',
                         status: false,
                     },
                     {
-                        title: '今天要修复100个bug',
+                        title: '����Ҫ�޸�100��bug',
                         status: true,
                     },
                     {
-                        title: '今天要写100行代码加几个bug吧',
+                        title: '����Ҫд100�д���Ӽ���bug��',
                         status: true,
                     }
                 ],
@@ -166,14 +168,14 @@
                     }
                 ],
                 options: {
-                    title: '最近七天每天的用户访问量',
+                    title: '�������ÿ����û�������',
                     showValue: false,
                     fillColor: 'rgb(45, 140, 240)',
                     bottomPadding: 30,
                     topPadding: 30
                 },
                 options2: {
-                    title: '最近七天用户访问趋势',
+                    title: '��������û���������',
                     fillColor: '#FC6FA1',
                     axisColor: '#008ACD',
                     contentColor: '#EEEEEE',
@@ -188,45 +190,44 @@
         },
         computed: {
             role() {
-                return this.name === 'admin' ? '超级管理员' : '普通用户';
+                return this.name === 'admin' ? '��������Ա' : '��ͨ�û�';
             }
         },
-        created(){
+        created() {
             this.handleListener();
             this.changeDate();
         },
-        activated(){
+        activated() {
             this.handleListener();
         },
-        deactivated(){
+        deactivated() {
             window.removeEventListener('resize', this.renderChart);
             bus.$off('collapse', this.handleBus);
         },
         methods: {
-            changeDate(){
+            changeDate() {
                 const now = new Date().getTime();
                 this.data.forEach((item, index) => {
                     const date = new Date(now - (6 - index) * 86400000);
                     item.name = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
                 })
             },
-            handleListener(){
+            handleListener() {
                 bus.$on('collapse', this.handleBus);
-                // 调用renderChart方法对图表进行重新渲染
+                // ����renderChart������ͼ������������Ⱦ
                 window.addEventListener('resize', this.renderChart)
             },
-            handleBus(msg){
+            handleBus(msg) {
                 setTimeout(() => {
                     this.renderChart()
                 }, 300);
             },
-            renderChart(){
+            renderChart() {
                 this.$refs.bar.renderChart();
                 this.$refs.line.renderChart();
             }
         }
     }
-
 </script>
 
 
@@ -339,5 +340,4 @@
         width: 100%;
         height: 300px;
     }
-
 </style>

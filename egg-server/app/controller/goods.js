@@ -13,40 +13,6 @@ class GoodsController extends Controller {
             ctx.helper.error(ctx, 401, '请检查输入项')
         }
     }
-    async query() {
-        const {
-            ctx
-        } = this;
-        let obj = {
-            banner: [],
-            details: []
-        }
-        try {
-            const url = `${ctx.query.url}/refer_page_name=${ctx.query.refer_page_name}&refer_page_id=${ctx.query.refer_page_id}&refer_page_sn=${ctx.query.refer_page_sn}`
-            const browser = await puppeteer.launch({});
-            const page = await browser.newPage();
-            await page.goto(url, {});
-            const htmlHandle = await page.$$('.islider-outer img');
-            const imgHandle = await page.$$('.goods-details img');
-            const name = await page.$('.enable-select')
-            obj.name = await page.evaluate(body => body.innerText, name);
-            const price = await page.$('.Batj66Sb')
-            obj.price = await page.evaluate(body => body.innerText, price);
-            // Batj66Sb
-            for (let i = 0; i < htmlHandle.length; i++) {
-                var src = await page.evaluate(body => body.src, htmlHandle[i]);
-                obj.banner.push(src)
-            }
-            for (let i = 0; i < imgHandle.length; i++) {
-                var src = await page.evaluate(body => body.dataset.url, imgHandle[i]);
-                obj.details.push(src)
-            }
-            await browser.close();
-            ctx.helper.success(ctx, obj)
-        } catch (err) {
-            ctx.helper.error(ctx, 400, '请求失败,请重试')
-        }
-    }
     async list() {
         try {
             const list = await this.app.model.Goods.findAll()

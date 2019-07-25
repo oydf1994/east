@@ -11,8 +11,7 @@
                         <el-input v-model="form.name"></el-input>
                     </el-form-item>
                     <el-form-item label="商品价格(元)">
-                        <el-input-number v-model="form.price" :min="1">
-                        </el-input-number>
+                        <el-input v-model="form.price"></el-input>
                     </el-form-item>
                     <el-form-item label="开奖模式">
                         <el-radio-group v-model="form.type">
@@ -49,7 +48,7 @@
                             <el-col :span="24">
                                 <el-card>
                                     <img :src="o" class="image" v-for="(o, index) in form.banner" :key="o"
-                                        @click="handlePictureCardPreview(o)">
+                                        @contextmenu="delImg('banner',index)" @click="handlePictureCardPreview(o)">
                                 </el-card>
                             </el-col>
                         </el-row>
@@ -59,7 +58,7 @@
                             <el-col :span="24">
                                 <el-card>
                                     <img :src="o" class="image" v-for="(o, index) in form.details" :key="o"
-                                        @click="handlePictureCardPreview(o)">
+                                        @contextmenu="delImg('details',index)" @click="handlePictureCardPreview(o)">
                                 </el-card>
                             </el-col>
                         </el-row>
@@ -95,7 +94,7 @@
         },
         methods: {
             getGoods() {
-                this.$api.get('/goods/query', {
+                this.$api.get('http://127.0.0.1:3000/query', {
                     url: this.url
                 }).then(res => {
                     if (res) {
@@ -105,6 +104,10 @@
                         }
                     }
                 })
+            },
+            // 双击删除图片
+            delImg(item, index) {
+                this.form[item].splice(index, 1)
             },
             // 文件上传成功
             handleAvatarSuccess(response, file, fileList) {
@@ -150,7 +153,7 @@
     }
 
     .image {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        margin-right: 10px;
     }
 </style>

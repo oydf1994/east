@@ -8,6 +8,7 @@ import {
 import host from './host'
 // axios.interceptors.request.header('Access-Control-Allow-Headers', 'Content-Type', 'Content-Length', 'Authorization', 'Accept', 'X-Requested-With', 'yourHeaderFeild');
 // 发起请求时,会执行该方法
+axios.defaults.baseURL = 'http://127.0.0.1:7001';
 axios.interceptors.request.use(config => {
     // bus.$emit("loading", true);
     //你可以在这里开始加载动画,  查询token  等等之类

@@ -27,6 +27,15 @@ module.exports = app => {
         language: {
             type: app.Sequelize.STRING,
             comment: "用户语言"
+        },
+        goodsId: {
+            type: app.Sequelize.STRING,
+            get() {
+                return this.getDataValue('goodsId') ? this.getDataValue('goodsId').split(',') : this.getDataValue('goodsId');
+            },
+            set(val) {
+                this.setDataValue('goodsId', val.join(','));
+            }
         }
     });
     return user;

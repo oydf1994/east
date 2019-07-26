@@ -6,7 +6,10 @@ module.exports = app => {
         },
         type: {
             type: app.Sequelize.INTEGER,
-            comment: '开奖模式 1.定时开奖 2.人数开奖'
+            comment: '开奖模式 1.定时开奖 2.人数开奖',
+            get() {
+                return this.getDataValue('type') == 1 ? '定时开奖' : '人数开奖';
+            },
 
         },
         lottery: {
@@ -60,7 +63,15 @@ module.exports = app => {
         },
         status: {
             type: app.Sequelize.STRING,
-            comment: '上架状态 0 全部 1 未上架 2 上架中  3 已下架'
+            comment: '上架状态 0 全部 1 未上架 2 上架中  3 已下架',
+            get() {
+                var timestamp = Date.parse(new Date());
+                if (this.getDataValue('type') == 1) {
+                    return timestamp > this.getDataValue('timing') ? '已发布' : '未上架'
+                } else {
+                    return timestamp > this.getDataValue('timing') ? '已发布' : '未上架'
+                }
+            }
         },
         winning: {
             type: app.Sequelize.INTEGER,

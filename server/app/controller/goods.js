@@ -1,14 +1,31 @@
 'use strict';
 const Controller = require('egg').Controller;
-const puppeteer = require('../../plug/node_modules/puppeteer');
+const puppeteer = require('puppeteer');
 class GoodsController extends Controller {
     async add() {
         const {
             ctx
         } = this;
         try {
-            console.log(ctx.request.body)
+            let arr = []
+            let min = await this.app.model.User.min('id')
+            let max = await this.app.model.User.max('id')
+            for (let i = 0; i < ctx.request.body.initPeople; i++) {
+                let num = this.ctx.helper.randomNum(min, max)
+                if (arr.indexOf(num) == -1) {
+                    arr.push(num)
+                }
+            }
             const res = await this.app.model.Goods.create(ctx.request.body)
+            const initPeople = await this.app.model.User.update({
+                goodsId: [res.id]
+            }, {
+                    where: {
+                        id: {
+                            [this.app.Sequelize.Op.in]: arr
+                        }
+                    }
+                })
             ctx.helper.success(ctx, res)
         } catch (e) {
             ctx.helper.error(ctx, 401, '请检查输入项')

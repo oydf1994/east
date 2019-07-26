@@ -1,7 +1,7 @@
 module.exports = {
     assetsDir: 'static',
-    outputDir: "../server/app/public/view",
-    publicPath: "./public/view",
+    // outputDir: "../server/app/public/view",
+    // publicPath: "./public/view",
     productionSourceMap: false,
     // devServer: {
     //     proxy: {

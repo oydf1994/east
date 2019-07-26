@@ -28,7 +28,12 @@
                 </el-table-column>
                 <el-table-column prop="currentPeople" label="已参加人数">
                 </el-table-column>
-                <el-table-column prop="address" label="开奖状态">
+                <el-table-column prop="status" label="商品状态">
+                </el-table-column>
+                <el-table-column prop="winning" label="中奖人">
+                    <template slot-scope="scope">
+                        <el-link type="success">{{scope.row.winning || '设置'}}</el-link>
+                    </template>
                 </el-table-column>
                 <el-table-column label="操作" width="180" align="center">
                     <template slot-scope="scope">

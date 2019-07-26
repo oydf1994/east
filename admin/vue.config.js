@@ -1,6 +1,6 @@
 module.exports = {
     assetsDir: 'static',
-    outputDir: "../egg-server/app/public/view",
+    outputDir: "../server/app/public/view",
     publicPath: "./public/view",
     productionSourceMap: false,
     // devServer: {

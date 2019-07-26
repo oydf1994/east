@@ -6,7 +6,6 @@ import {
     MessageBox
 } from 'element-ui'
 import host from './host'
-axios.defaults.baseURL = host;
 // axios.interceptors.request.header('Access-Control-Allow-Headers', 'Content-Type', 'Content-Length', 'Authorization', 'Accept', 'X-Requested-With', 'yourHeaderFeild');
 // 发起请求时,会执行该方法
 axios.interceptors.request.use(config => {

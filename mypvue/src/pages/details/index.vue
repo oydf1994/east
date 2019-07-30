@@ -42,7 +42,6 @@
     </div>
     <!-- open-type="share" -->
     <button class="share" @click="share">分享给朋友</button>
-    <p class="slide-text">继续上滑，更多奖品在等您</p>
     <van-toast id="van-toast" />
     <van-action-sheet :show="show" cancel-text="取消" @cancel="onClose">
       <van-row class="van-row">
@@ -64,6 +63,12 @@
         </van-col>
       </van-row>
     </van-action-sheet>
+    <van-goods-action>
+      <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" />
+      <van-goods-action-icon icon="share" text="分享" open-type="share" />
+      <van-goods-action-icon icon="friends-o" text="参与人员" @click="navigateTo" />
+      <van-goods-action-button text="参与抽奖" type="primary " size="mini" @click="lottery" />
+    </van-goods-action>
   </div>
 </template>
 

@@ -4,7 +4,10 @@
     "van-toast": "../../../static/vant/toast/index",
     "van-action-sheet": "../../../static/vant/action-sheet/index",
     "van-row": "../../../static/vant/row/index",
-    "van-col": "../../../static/vant/col/index"
+    "van-col": "../../../static/vant/col/index",
+    "van-goods-action": "../../../static/vant/goods-action/index",
+    "van-goods-action-icon": "../../../static/vant/goods-action-icon/index",
+    "van-goods-action-button": "../../../static/vant/goods-action-button/index"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"

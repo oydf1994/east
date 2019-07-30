@@ -3,40 +3,27 @@
     <div class="head">
       <img src="../../../static/images/user.png" alt="">
       <h5>East</h5>
-      <button>公益 6</button>
-    </div>
-    <div class="data">
-      <van-row>
-        <van-col span="8">
-          <p class="title">我的抽奖</p>
-          <p class="num">82</p>
-        </van-col>
-        <van-col span="8">
-          <p class="title">公益次数</p>
-          <p class="num">82</p>
-        </van-col>
-        <van-col span="8">
-          <p class="title">中奖纪录</p>
-          <p class="num">82</p>
-        </van-col>
-      </van-row>
     </div>
     <div class="cell">
       <ul>
         <li>
-          <span>能量积分</span>
+          <span>抽奖记录</span>
           <van-icon name="arrow" />
         </li>
         <li>
-          <span>官方商城</span>
-          <van-icon name="arrow" />
-        </li>
-        <li>
-          <span>我的收藏</span>
+          <span>中奖纪录</span>
           <van-icon name="arrow" />
         </li>
         <li>
           <span>收货地址</span>
+          <van-icon name="arrow" />
+        </li>
+        <li>
+          <span>商务合作</span>
+          <van-icon name="arrow" />
+        </li>
+        <li>
+          <span>在线客服</span>
           <van-icon name="arrow" />
         </li>
       </ul>

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "公益抽奖",
+  "navigationBarTitleText": "幸运抽大奖",
   "usingComponents": {
     "van-icon": "../../../static/vant/icon/index"
   },

@@ -1,55 +1,12 @@
 <template>
   <div>
-    <div class="head">
-      <img src="./../../../static/images/tree.png" alt="">
-      <span>签到获取能量</span>
-      <van-icon name="arrow" />
-    </div>
     <div class="Stick van-hairline--bottom">
       <ul>
-        <li @click="navigateTo(1)">
+        <li @click="navigateTo(1)" v-for="item in 10 " :key="item">
           <img src="../../../static/images/1.png" alt="" class="img">
           <h3>奖品：智能颈椎按摩仪 ×1</h3>
           <p class="merchant">抽奖助手官方商城 赞助</p>
           <p class="time">07月16日 18:00 自动开奖</p>
-          <div class="fun">
-            <!-- <img src="../../../static/images/favour.png" alt="" class="like"> -->
-            <img src="../../../static/images/favour-active.png" alt="" class="like">
-            <img src="../../../static/images/cart.png" alt="" class="collect">
-          </div>
-        </li>
-        <li @click="navigateTo(1)">
-          <img src="../../../static/images/1.png" alt="" class="img">
-          <h3>奖品：智能颈椎按摩仪 ×1</h3>
-          <p class="merchant">抽奖助手官方商城 赞助</p>
-          <p class="time">07月16日 18:00 自动开奖</p>
-          <div class="fun">
-            <img src="../../../static/images/favour.png" alt="" class="like">
-            <!-- <img src="../../../static/images/favour-active.png" alt="" class="like"> -->
-            <img src="../../../static/images/cart.png" alt="" class="collect">
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="list">
-      <ul>
-        <li>
-          <div class="left">
-            <img src="./../../../static/images/222.png" alt="">
-          </div>
-          <div class="right">
-            <h3>奖品：智能颈椎按摩仪 ×1</h3>
-            <p>07月16日 18:00 自动开奖</p>
-          </div>
-        </li>
-        <li>
-          <div class="left">
-            <img src="./../../../static/images/222.png" alt="">
-          </div>
-          <div class="right">
-            <h3>奖品：智能颈椎按摩仪 ×1</h3>
-            <p>07月16日 18:00 自动开奖</p>
-          </div>
         </li>
       </ul>
     </div>

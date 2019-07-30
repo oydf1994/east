@@ -27,11 +27,6 @@
         "pagePath": "pages/goods/main",
         "iconPath": "static/tabs/home.png",
         "selectedIconPath": "static/tabs/home-active.png"
-      }, {
-        "text": "种植",
-        "pagePath": "pages/plant/main",
-        "iconPath": "static/tabs/plant.png",
-        "selectedIconPath": "static/tabs/plant-active.png"
       },
       {
         "text": "我的",

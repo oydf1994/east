@@ -2,9 +2,9 @@
   <div>
     <div class="Stick van-hairline--bottom">
       <ul>
-        <li @click="navigateTo(1)" v-for="item in 10 " :key="item">
-          <img src="../../../static/images/1.png" alt="" class="img">
-          <h3>奖品：智能颈椎按摩仪 ×1</h3>
+        <li @click="navigateTo(1)" v-for="item in list " :key="item.id">
+          <img :src="item.banner[0]" alt="" class="img">
+          <h3>奖品：{{item.name}} ×1</h3>
           <p class="merchant">抽奖助手官方商城 赞助</p>
           <p class="time">07月16日 18:00 自动开奖</p>
         </li>
@@ -17,7 +17,8 @@
   export default {
     data() {
       return {
-        user: {}
+        user: {},
+        list: []
       }
     },
     components: {},
@@ -32,7 +33,11 @@
       mpvue.stopPullDownRefresh()
     },
 
-    created() {}
+    created() {
+      this.$tools.api('/goods/list', {}, (res) => {
+        this.list = res.data
+      })
+    }
   }
 
 </script>

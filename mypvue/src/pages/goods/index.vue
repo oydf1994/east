@@ -27,17 +27,22 @@
         mpvue.navigateTo({
           url: '/pages/details/main?id=111'
         })
-      }
+      },
+      gitList() {
+        this.$tools.api('/goods/list', {}, (res) => {
+          this.list = res.data
+        })
+      },
     },
     onPullDownRefresh() {
+      this.gitList()
       mpvue.stopPullDownRefresh()
     },
 
     created() {
-      this.$tools.api('/goods/list', {}, (res) => {
-        this.list = res.data
-      })
-    }
+      this.gitList()
+    },
+
   }
 
 </script>

@@ -57,13 +57,11 @@
       },
       //点击抽奖
       lottery() {
-        Toast.loading({
-          mask: true,
-          message: ''
-        });
+        mpvue.showLoading({
+          title: '',
+        })
         setTimeout(() => {
-          Toast.clear()
-          this.flag = !this.flag
+          mpvue.hideLoading();
         }, 2000)
       },
       navigateTo() {
@@ -177,6 +175,7 @@
 
   .introduce img {
     width: 100%;
+    height: 500px;
   }
 
   .introduce h5 {

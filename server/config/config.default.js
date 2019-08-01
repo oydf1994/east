@@ -21,12 +21,11 @@ module.exports = appInfo => {
       '.html': 'ejs'
     } //左边写成.html后缀，会自动渲染.html文件
   };
-  config.host = 'http://127.0.0.1:7001'
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1563854391385_7076';
 
   // add your middleware config here
-  config.middleware = ['success'];
+  config.middleware = ['log','success'];
   config.sequelize = {
     dialect: 'mysql', // 表示使用mysql
     host: '47.101.181.76', // 连接的数据库主机地址

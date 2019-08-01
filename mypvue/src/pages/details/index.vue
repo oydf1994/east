@@ -2,67 +2,18 @@
   <div>
     <div class="swiper">
       <swiper :autoplay="autoplay" :interval="interval" :duration="duration">
-        <swiper-item v-for="item in imgUrls" :key="item">
+        <swiper-item v-for="item in form.banner" :key="item">
           <image :src="item" class="slide-image" />
         </swiper-item>
       </swiper>
     </div>
     <div class="message">
-      <h3> 奖品：智能颈椎按摩仪按摩仪 ×1</h3>
+      <h3> 奖品：{{form.name}} ×1</h3>
       <p> 07月16日 18:00 自动开奖</p>
-      <div class="sponsor">
-        <span>赞助商</span><span> & </span><span>官方商城</span>
-        <img src="../../../static/images/add.png" alt="">
-      </div>
-      <div class="introduce">
-        <h5>赞助商介绍：</h5>
-        <p>Handcrafted from the finest quality Brazilian soapstone, this soapstone casserole dish embodies the raw
-          beauty of nature combined with clean, modern design. The mineral composition of each stone varies slightly,
-          resulting in diverse veining, speckling, and coloration that make each piece truly unique.</p>
-      </div>
     </div>
-    <div class="award">
-      <div class="join" v-if="flag" @click="lottery">参与抽奖</div>
-      <div class="await" v-if="!flag">
-        待开奖
-      </div>
-      <div class="point" v-if="!flag">
-        ........
-      </div>
-      <div class="join2" v-if="!flag" @click="lottery">
-        <div class="div">
-          <img src="../../../static/images/quzudui.png" alt="">
-        </div>
-        <span>去组队</span>
-      </div>
-      <div class="text" @click="navigateTo">已有 4435 人参与，查看全部</div>
+    <div class="introduce">
+      <img :src="item" alt="" v-for="item in form.details">
     </div>
-    <div class="portrait">
-      <img src="../../../static/images/user.png" alt="" v-for="item in 7" :key="item">
-    </div>
-    <!-- open-type="share" -->
-    <button class="share" @click="share">分享给朋友</button>
-    <van-toast id="van-toast" />
-    <van-action-sheet :show="show" cancel-text="取消" @cancel="onClose">
-      <van-row class="van-row">
-        <van-col span="6">
-          <img src="../../../static/images/11.png" alt="">
-          <p>发送给朋友</p>
-        </van-col>
-        <van-col span="6">
-          <img src="../../../static/images/12.png" alt="">
-          <p>保存分享图片</p>
-        </van-col>
-        <van-col span="6">
-          <img src="../../../static/images/13.png" alt="">
-          <p>嵌入公众号</p>
-        </van-col>
-        <van-col span="6">
-          <img src="../../../static/images/14.png" alt="">
-          <p>复制链接</p>
-        </van-col>
-      </van-row>
-    </van-action-sheet>
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" />
       <van-goods-action-icon icon="share" text="分享" open-type="share" />
@@ -83,6 +34,7 @@
         autoplay: true,
         flag: true,
         show: false,
+        form: {},
         interval: 2000,
         duration: 1000
       }
@@ -120,11 +72,16 @@
         })
       },
       share() {
-        console.log(1)
         this.show = true
       },
       get(id) {
         console.log(id)
+        this.$tools.api('/goods/get', {
+          id: id
+        }, (res) => {
+          this.form = res.data
+          console.log(this.form)
+        })
       }
     },
     onShareAppMessage() {
@@ -176,7 +133,6 @@
 
   .message h3 {
     font-size: 14px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(56, 56, 56, 1);
     line-height: 20px;
@@ -184,7 +140,6 @@
 
   .message p {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(97, 97, 97, 1);
     line-height: 17px;
@@ -202,7 +157,6 @@
 
   .sponsor span {
     font-size: 12px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(99, 200, 158, 1);
     line-height: 17px;
@@ -217,14 +171,16 @@
   }
 
   .introduce {
-    margin-top: 40px;
     border-bottom: 1px solid #D5D5DB;
 
   }
 
+  .introduce img {
+    width: 100%;
+  }
+
   .introduce h5 {
     font-size: 12px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(69, 69, 83, 1);
     line-height: 17px;
@@ -233,7 +189,6 @@
 
   .introduce p {
     font-size: 13px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(140, 140, 153, 1);
     line-height: 24px;
@@ -253,7 +208,6 @@
     margin-bottom: 12px;
     margin-top: 38px;
     font-size: 16px;
-    font-family: PingFangSC-Semibold;
     font-weight: 600;
     color: rgba(255, 255, 255, 1);
     line-height: 110px;
@@ -271,7 +225,6 @@
     margin-bottom: 12px;
     margin-top: 38px;
     font-size: 11px;
-    font-family: PingFangSC-Semibold;
     font-weight: 600;
     color: rgba(255, 255, 255, 1);
     text-align: center;
@@ -295,7 +248,6 @@
 
   .join2 span {
     font-size: 16px;
-    font-family: PingFangSC-Semibold;
     font-weight: 600;
     color: rgba(255, 255, 255, 1);
     text-align: center;
@@ -317,7 +269,6 @@
 
   .point {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(155, 155, 155, 1);
     line-height: 17px;
@@ -329,7 +280,6 @@
 
   .text {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(155, 155, 155, 1);
     line-height: 17px;
@@ -355,7 +305,6 @@
     background: rgba(103, 103, 103, 1);
     box-shadow: 0px 2px 13px 0px rgba(94, 160, 237, 0.16);
     font-size: 14px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     line-height: 51px;
@@ -363,7 +312,6 @@
 
   .slide-text {
     font-size: 11px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(155, 155, 155, 1);
     line-height: 15px;
@@ -384,7 +332,6 @@
 
   .van-row .van-row p {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(127, 131, 137, 1);
     line-height: 17px;

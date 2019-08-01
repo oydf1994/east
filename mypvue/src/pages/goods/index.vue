@@ -2,7 +2,7 @@
   <div>
     <div class="Stick van-hairline--bottom">
       <ul>
-        <li @click="navigateTo(1)" v-for="item in list " :key="item.id">
+        <li @click="navigateTo(item.id)" v-for="item in list " :key="item.id">
           <img :src="item.banner[0]" alt="" class="img">
           <h3>奖品：{{item.name}} ×1</h3>
           <p class="merchant">抽奖助手官方商城 赞助</p>
@@ -23,9 +23,9 @@
     },
     components: {},
     methods: {
-      navigateTo() {
+      navigateTo(id) {
         mpvue.navigateTo({
-          url: '/pages/details/main?id=111'
+          url: `/pages/details/main?id=${id}`
         })
       },
       gitList() {
@@ -65,7 +65,6 @@
 
   .head span {
     font-size: 12px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     line-height: 17px;
@@ -102,7 +101,6 @@
 
   .Stick li h3 {
     font-size: 14px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(56, 56, 56, 1);
     margin-top: 6px;
@@ -111,7 +109,6 @@
 
   .Stick .merchant {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(99, 200, 158, 1);
     margin-top: 4px;
@@ -121,7 +118,6 @@
 
   .Stick .time {
     font-size: 9px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(155, 155, 155, 1);
     margin-top: 6px;
@@ -179,7 +175,6 @@
 
   .right h3 {
     font-size: 14px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(56, 56, 56, 1);
     line-height: 20px;
@@ -187,7 +182,6 @@
 
   .right p {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(97, 97, 97, 1);
     line-height: 17px;

@@ -60,7 +60,6 @@
 
   .head h5 {
     font-size: 14px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
     text-align: center;
@@ -73,7 +72,6 @@
     box-shadow: 0px 8px 23px 0px rgba(0, 0, 0, 0.13);
     border-radius: 50px;
     font-size: 12px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     line-height: 35px;
@@ -95,7 +93,6 @@
 
   .van-row .title {
     font-size: 11px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(79, 74, 102, 0.33);
     line-height: 15px;
@@ -104,7 +101,6 @@
 
   .van-row .num {
     font-size: 14px;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(52, 51, 57, 1);
     line-height: 20px;
@@ -124,7 +120,6 @@
 
   .cell li span {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(97, 97, 97, 1);
     line-height: 17px;

@@ -50,6 +50,18 @@ class GoodsController extends Controller {
             this.ctx.helper.error(this.ctx, 401, '请重试')
         }
     }
+    async get() {
+        try {
+            const res = await this.app.model.Goods.findOne({
+                where: {
+                    id: this.ctx.query.id
+                }
+            })
+            this.ctx.helper.success(this.ctx, res)
+        } catch (e) {
+            this.ctx.helper.error(this.ctx, 401, '请重试')
+        }
+    }
 }
 
 module.exports = GoodsController;

@@ -38,7 +38,7 @@ module.exports = app => {
             comment: '是否下架'
         },
         banner: {
-            type: app.Sequelize.STRING,
+            type: app.Sequelize.STRING(100000),
             comment: '商品banner图储存文件地址',
             get() {
                 return this.getDataValue('banner').split(',');
@@ -48,7 +48,7 @@ module.exports = app => {
             }
         },
         details: {
-            type: app.Sequelize.STRING,
+            type: app.Sequelize.STRING(100000),
             comment: '商品详情图储存文件地址',
             get() {
                 return this.getDataValue('details').split(',');

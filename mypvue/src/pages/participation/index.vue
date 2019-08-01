@@ -28,7 +28,6 @@
 <style scoped>
   p {
     font-size: 12px;
-    font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(155, 155, 155, 1);
     line-height: 17px;

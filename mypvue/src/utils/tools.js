@@ -1,4 +1,4 @@
-const host = 'http://psxz78.natappfree.cc'
+const host = 'http://127.0.0.1:7001'
 export default {
     log(val) {
         console.log(val)

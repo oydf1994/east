@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "幸运抽大奖",
   "usingComponents": {
-    "van-icon": "../../../static/vant/icon/index"
+    "van-icon": "../../../static/vant/icon/index",
+    "van-row": "../../../static/vant/row/index",
+    "van-col": "../../../static/vant/col/index"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"

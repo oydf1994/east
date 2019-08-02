@@ -10,7 +10,6 @@ module.exports = app => {
             get() {
                 return this.getDataValue('type') == 1 ? '定时开奖' : '人数开奖';
             },
-
         },
         lottery: {
             type: app.Sequelize.STRING,

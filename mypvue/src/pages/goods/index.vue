@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="Stick van-hairline--bottom">
-      <ul>
-        <li @click="navigateTo(item.id)" v-for="item in list " :key="item.id">
-          <img :src="item.banner[0]" alt="" class="img">
-          <h3>奖品：{{item.name}} ×1</h3>
-          <p class="merchant">抽奖助手官方商城 赞助</p>
-          <p class="time">07月16日 18:00 自动开奖</p>
-        </li>
-      </ul>
+      <van-row :gutter="10">
+        <van-col :span="12" v-for="item in list " :key="item.id">
+          <div @click="navigateTo(item.goodsId)" class="div">
+            <img :src="item.goodsPic" alt="" class="img">
+            <h3>{{item.goodsName}}</h3>
+          </div>
+        </van-col>
+      </van-row>
     </div>
   </div>
 </template>
@@ -29,7 +29,10 @@
         })
       },
       gitList() {
-        this.$tools.api('/goods/list', {}, (res) => {
+        this.$tools.api('/goods/list', {
+          pageNumber: 1,
+          pageSize: 60
+        }, (res) => {
           this.list = res.data
         })
       },
@@ -48,58 +51,19 @@
 </script>
 
 <style scoped>
-  .head {
-    height: 55px;
-    background: #63C89E;
-    display: flex;
-    position: relative;
-    align-items: center;
-  }
-
-  .head img {
-    width: 23px;
-    margin-left: 15px;
-    margin-right: 9px;
-    height: 29px;
-  }
-
-  .head span {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 1);
-    line-height: 17px;
-    letter-spacing: 1px;
-  }
-
-  .head van-icon {
-    color: rgba(255, 255, 255, 1);
-    position: absolute;
-    right: 21px;
-    top: 19px;
-  }
-
   .Stick {
     /* border-bottom: 1px solid rgba(225, 225, 225, 1); */
     padding-bottom: 27px;
     margin: 0 20px;
   }
 
-  .Stick li {
-    height: 240px;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
-    border-radius: 2px;
-    position: relative;
-    margin: 0 auto;
-    margin-top: 15px;
-  }
 
-  .Stick li .img {
+  .div .img {
     width: 100%;
     height: 150px;
   }
 
-  .Stick li h3 {
+  .div h3 {
     font-size: 14px;
     font-weight: 500;
     color: rgba(56, 56, 56, 1);
@@ -107,7 +71,7 @@
     padding-left: 18px;
   }
 
-  .Stick .merchant {
+  .div .merchant {
     font-size: 12px;
     font-weight: 400;
     color: rgba(99, 200, 158, 1);
@@ -116,14 +80,6 @@
 
   }
 
-  .Stick .time {
-    font-size: 9px;
-    font-weight: 400;
-    color: rgba(155, 155, 155, 1);
-    margin-top: 6px;
-    padding-left: 18px;
-
-  }
 
   .fun {
     position: absolute;

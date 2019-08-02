@@ -32,8 +32,17 @@ class GoodsController extends Controller {
     }
     async list() {
         try {
-            const list = await this.app.model.Goods.findAll()
-            this.ctx.helper.success(this.ctx, list)
+            const res = await this.ctx.curl('https://api.pinduoduo.com/api/jinbao/h5_weak_auth/goods/query_goods_list_by_opt_id_c', {
+                method: 'POST',
+                contentType: 'json',
+                data: {
+                    optId: 14,
+                    pageNum: 1,
+                    pageSize: 14,
+                },
+                dataType: 'json'
+            })
+            this.ctx.helper.success(this.ctx, res.data.result.goodsList)
         } catch (e) {
             this.ctx.helper.error(this.ctx, 401, '请重试')
         }
@@ -52,10 +61,13 @@ class GoodsController extends Controller {
     }
     async get() {
         try {
-            const res = await this.app.model.Goods.findOne({
-                where: {
-                    id: this.ctx.query.id
-                }
+            const res = await this.ctx.curl('https://youhui.pinduoduo.com/network/api/goods/queryByGoodsId', {  // pc 商品详情
+                method: 'POST',
+                contentType: 'json',
+                data: {
+                    goodsIds: ["13893788683"]
+                },
+                dataType: 'json'
             })
             this.ctx.helper.success(this.ctx, res)
         } catch (e) {

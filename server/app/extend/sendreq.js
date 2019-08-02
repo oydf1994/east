@@ -1,34 +1,11 @@
+// var http = require("http"); //http 请求
 var https = require("https"); //https 请求
 var querystring = require("querystring");
-// 处理成功响应
-exports.success = (ctx, result = null, message = "请求成功", status = 200) => {
-    ctx.body = {
-        status: status,
-        message: message,
-        data: result
-    };
-    ctx.status = status;
-};
-
-// 处理失败响应
-exports.error = (ctx, status, message) => {
-    ctx.body = {
-        status: status,
-        message: message
-    };
-    ctx.status = status;
-};
-exports.randomNum = (Min, Max) => {
-    var Range = Max - Min;
-    var Rand = Math.random();
-    var num = Min + Math.round(Rand * Range); //四舍五入
-    return num;
-}
-exports.sendreq = (param, callback) => {
+function request(param, callback) {
     var options = {
         hostname: 'youhui.pinduoduo.com',
-        port: 80, //端口号 https默认端口 443， http默认的端口号是80
-        path: 'https://jinbao.pinduoduo.com/network/api/common/goodsList',
+        // port: 80, //端口号 https默认端口 443， http默认的端口号是80
+        path: '/network/api/goods/queryByGoodsId',
         method: 'POST',
         headers: {
             "Connection": "keep-alive",
@@ -61,3 +38,4 @@ exports.sendreq = (param, callback) => {
     req.write(querystring.stringify(param)); //post 请求传参
     req.end(); //必须要要写，
 }
+module.exports = { request }
